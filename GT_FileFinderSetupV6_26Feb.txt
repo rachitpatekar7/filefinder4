@@ -1,0 +1,124 @@
+﻿GT File Finder Setup info
+
+
+
+
+
+GT File Finder Setup	1
+Contact info	1
+Setting up MySQL Data	2
+Connecting MySQL with ip address	2
+Mysql Scripts	3
+Setting up Code in VSCode	4
+Check correct values in .env	4
+Setting up a Virtual Environment and Running the Code	4
+How to Create a .exe file	6
+Install PowerBI	6
+
+
+GT File Finder Setup
+Version 6  
+Date: 26 February 2024
+
+Contact info 
+
+For any inquiries or assistance, please contact:
+
+Email : arunkumar.nair@canspirit.ai
+
+Setting up MySQL Data
+
+Connecting MySQL with ip address
+To set up MySQL data, follow these steps:
+
+1. Navigate to `C:\ProgramData\MySQL\MySQL Server 8.0`.
+2. Make the `my.ini` file writable and add the following line:
+   ```
+   Binding-address=0.0.0.0
+   ```
+   This allows MySQL to accept connections from any IP address.
+
+C:\ProgramData\MySQL\MySQL Server 8.0
+
+
+Mysql Scripts
+In MySQL Workbench, execute the provided MySQL script (`1_sql_file_info_create.sql`) to set up the necessary user and permissions in MySQL. This script creates a user `arungt` with the password `fi!ef!ndgt!23` and grants it full privileges on all databases.
+
+CREATE USER 'arungt'@'localhost' IDENTIFIED BY 'fi!ef!ndgt!23'; 
+GRANT ALL PRIVILEGES ON *.* TO 'arungt'@'localhost' WITH GRANT OPTION;
+FLUSH PRIVILEGES; 
+SHOW GRANTS FOR 'arungt'@'localhost';
+
+After setting up MySQL and executing the necessary scripts, databases and tables required for the file finder application will be created. Ensure that the script `1_sql_file_info_create.sql` is executed successfully to create the required database schema.
+
+1_sql_file_info_create.sql
+
+Setting up Code in VSCode
+Check correct values in .env
+
+MYSQL_HOST=localhost
+MYSQL_DATABASE=lisney_files_info8
+MYSQL_USERNAME=arungt
+MYSQL_PASSWORD=fi!ef!ndgt!23
+FILE_EXTENSIONS=.xlsx,.xls
+N_DAYS=1
+SENSITIVE_PATTERNS=password,creditcard
+MIN_ROW=3
+Setting up a Virtual Environment and Running the Code
+
+1. Navigate to the directory where the file finder code is located (`<filefinder directory>`).
+2. Create a virtual environment using Python's `venv` module:  
+   
+       python -m venv venv
+   
+3.  Activate the virtual environment:
+   
+      .\venv\Scripts\activate
+   
+4. Install the required Python packages listed in `requirements.txt`:
+  
+      pip install -r requirements.txt
+   
+5.  Run the Python script `file_info_version_22.py`:
+   
+       python file_info_version_22.py   
+ 
+ $ cd <filefinder directory>
+ $  python -m venv venv 
+$ .\venv\Scripts\activate
+$ pip install -r requirements.txt
+$ python file_info_version_22.py
+ 
+
+If the virtual machine does not run - 
+If you encounter issues with running the virtual machine, ensure that the execution policy is set to unrestricted and the `LongPathsEnabled` registry key is set to `1`.
+$ Set-ExecutionPolicy Unrestricted -Force
+Set below value to 1 - 
+$Computer\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem\LongPathsEnabled
+How to Create a .exe file
+To create an executable (.exe) file for the file finder application, follow these steps:
+
+1.  Run the following command in the terminal:
+   
+   pyinstaller --onefile <script_name>.py
+  
+2.    Replace `<script_name>` with the name of your Python script (`file_info_version_22`).
+3. After successful execution, three files will be generated in the folder:
+   - `.env`
+   - `1_sql_file_info_create.sql`
+   - `file_info_version_XYZ.exe`
+4. Ensure that both the `.env` file and the executable file (`file_info_version_22.exe`) are in the same folder.
+5. Run the `file_info_version_22.exe` file and follow the instructions displayed on the Command Line interface.
+6. Wait for the search process to be completed.
+
+Install PowerBI
+
+To utilize PowerBI with the file finder application, follow these steps:
+
+1. Install PowerBI from the Microsoft Store.
+2. Install the PowerBI MySQL connector to establish a connection with the MySQL database.
+3. When opening a file in PowerBI, select `File` > `Security` > `Not Recommended` for enhanced security measures. 
+
+
+
+

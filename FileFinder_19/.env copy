@@ -1,0 +1,32 @@
+MYSQL_HOST=DESKTOP-F2MMHCB
+MYSQL_PORT=3306
+MYSQL_DATABASE=lisney_files_info6
+MYSQL_USERNAME=arungt
+MYSQL_PASSWORD=fi!ef!ndgt!23
+ENABLE_APP_LOG_TO_DB=true
+
+ENABLE_ENV_FROM_DB=false
+#ENABLE_ENV_FROM_DB=true , goes to the database
+
+ENABLE_FILE_EXT_COUNT_IN_SCAN=true
+# The program will do a full scan. when you choose the option SCAN, the files are Counted again. ENABLE_FILE_COUNT_IN_SCAN=true will count the files again.
+# By Default the software will count all the files in the machine
+#Else the files will not be counted. Only the details of the files will be inserted. 
+
+D_FILE_DETAILS_FILE_EXTENSIONS=.pdf,.xls,.xlsx,.doc,.docx,.ppt,.pptx,.txt,.rtf,.csv,.tsv,.pst,.sql,.db,.dbf,.mdb,.bak,.zip,.gz,.tar,.rar,.7z,.jpg,.png,.gif,.mp3,.mp4,.xml,.html,.htm,.log,.odt,.ods,.odp,.odg,.odf,.od,.exe,.dll,.avi,.bat,.reg,.css,.js,.lnk,.sys,.ini,.wav,.bmp,.tif,.iso,.dat,.psd,.ai,.eps
+
+#.pdf,.xls,.xlsx,.doc,.docx,.txt
+# comma separated list of file extensions to be scanned (.pdf,.xls,.xlsx) OR "all" FOR FULL SCAN. "all" includes system files.
+#all or .pdf,.xls,.xlsx,.doc,.docx,.ppt,.pptx,.txt,.rtf,.csv,.tsv,.pst,.sql,.db,.dbf,.mdb,.bak,.zip,.gz,.tar,.rar,.7z,.jpg,.png,.gif,.mp3,.mp4,.xml,.html,.htm,.log,.odt,.ods,.odp,.odg,.odf,.od,.exe,.dll,.avi,.bat,.reg,.css,.js,.lnk,.sys,.ini,.wav,.bmp,.tif,.iso,.dat,.psd,.ai,.eps
+#D_FILE_DETAILS_FILE_EXTENSIONS is used for scanning the files details
+N_DAYS=0
+# if N_DAYS=0, all files will be scanned, modified date will not be checked. if N_DAYS> 0, modified files will be scanned. number of modified days to be scanned
+
+IS_SENSITIVE_FILE_EXTENSIONS=.xls,.xlsx
+#all or .pdf, .xls, .xlsx, .doc, .docx,  .ppt,.pptx, .txt, .rtf, .csv, .tsv, .pst, .sql, .db, .dbf, .mdb,  .bak,  .zip, .gz, .tar, .rar, .7z, .jpg, .png, .gif, .mp3, .mp4, .xml, .html, .htm, .log,  .odt, .ods, .odp, .odg, .odf, .od, .exe, .dll, .avi, .bat, .reg, .css, .js, .lnk, .sys, .ini, .wav, .bmp, .tif, .iso, .dat,  .psd, .ai, .eps
+FILE_PATH_SCAN_SENSITIVE_PATTERNS=password,creditcard  # comma separated list of sensitive patterns to be scanned during file path scan
+ENABLE_EXCEL_FILE_DATA_SCAN=false # true/false, to enable excel file data scan 
+ENABLE_EXCEL_FILE_DATA_SCAN_MIN_ROW=3 # minimum number of rows to be scanned in excel file
+# ENABLE_LOG_LEVELS = #INFO,ERROR,WARNING # comma separated list of log levels to be enabled
+
+
