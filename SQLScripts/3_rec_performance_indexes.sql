@@ -8,7 +8,7 @@
 -- Execution time: ~5-30 minutes depending on table sizes
 -- ===================================================================
 
-USE lisney_files_info8;
+USE rec_files;
 
 -- Disable foreign key checks temporarily for faster index creation
 SET FOREIGN_KEY_CHECKS = 0;
@@ -296,7 +296,7 @@ SELECT
     ROUND((INDEX_LENGTH / 1024 / 1024), 2) AS 'Index Size (MB)',
     TABLE_ROWS
 FROM information_schema.TABLES
-WHERE TABLE_SCHEMA = 'lisney_files_info8'
+WHERE TABLE_SCHEMA = 'rec_files'
 ORDER BY (DATA_LENGTH + INDEX_LENGTH) DESC;
 
 -- ===================================================================
@@ -308,7 +308,7 @@ ORDER BY (DATA_LENGTH + INDEX_LENGTH) DESC;
 -- ANALYZE TABLE d_file_details;
 
 -- Monitor index usage
--- SELECT * FROM sys.schema_unused_indexes WHERE object_schema = 'lisney_files_info8';
+-- SELECT * FROM sys.schema_unused_indexes WHERE object_schema = 'rec_files';
 
 -- ===================================================================
 -- PERFORMANCE IMPACT SUMMARY
